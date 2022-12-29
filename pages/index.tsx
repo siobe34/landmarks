@@ -11,10 +11,7 @@ export default function Home() {
             </Head>
 
             <PageSection className='mt-4'>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae sunt inventore sed porro soluta accusantium, voluptatem eius,
-                    nobis beatae illo cumque est neque odit laboriosam, necessitatibus sint consequuntur ad dolor!
-                </p>
+                <h1 className='text-2xl font-bold underline'>Developing...</h1>
             </PageSection>
         </>
     );
