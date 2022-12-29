@@ -13,8 +13,8 @@ import { ThemeToggler } from "../ThemeToggler";
 // * Array to store hrefs and names of website pages for cleaner HTML below
 const SitePages = [
     { href: "/", name: "Home" },
-    { href: "/link1", name: "Link 1" },
-    { href: "/link2", name: "Link 2" },
+    { href: "/map", name: "Map" },
+    { href: "/about", name: "About" },
 ];
 
 export const Navbar = ({ className }: INavbar) => {
