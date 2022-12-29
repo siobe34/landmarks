@@ -1,14 +1,11 @@
-# Next.js Project Template
+# Landmarks
 
-This template includes a barebones site layout, responsive page content, responsive navigation bar, and theme toggler. It has been bootstrapped with the following:
+This is a side project I developed because I love maps. Also, I happened to learn working with the Google Maps JS API while developing it so there was that as well.
 
--   Next.js (v13.1.1)
--   Typescript (v4.9.4)
--   Tailwind CSS (v3.2.4)
--   FontAwesome Icons
--   Framer Motion
+## What is Landmarks?
 
-# How to use
+A world map of cool landmarks and respective information. It's an interactive way to learn about interesting geography, weird archeological facts, various points of interest, and any other intriguing geospatial data.
 
-1. Clone the repo and start editing the pages directory.
-2. Add your site's links in the Navbar component in the SitePages array.
+## Can I Add Landmarks?
+
+It'd be cool to have people add in their own markers on the map for cool places around the world. But obviously this can easily be abused so for now, user input is not being implemented.
