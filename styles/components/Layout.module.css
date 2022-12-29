@@ -1,0 +1,7 @@
+.grid {
+    display: grid;
+    grid-template-areas:
+        "nav"
+        "main";
+    grid-template-rows: max(45px, 7vh) 93vh;
+}
