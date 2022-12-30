@@ -17,7 +17,7 @@ export const ThemeToggler = () => {
             setCurrentTheme("dark");
 
             // * Set dark theme in Local Storage
-            window.localStorage.setItem("ugckfj-theme", "dark");
+            window.localStorage.setItem("nextjs-app-theme", "dark");
         }
 
         if (currentTheme === "dark") {
@@ -26,13 +26,13 @@ export const ThemeToggler = () => {
             document.documentElement.classList.remove("dark");
 
             // * Set light theme in Local Storage
-            window.localStorage.setItem("ugckfj-theme", "light");
+            window.localStorage.setItem("nextjs-app-theme", "light");
         }
     };
 
     useEffect(() => {
         // * Get stored theme from Local Storage
-        const storedTheme = window.localStorage.getItem("ugckfj-theme") as ITheme["theme"];
+        const storedTheme = window.localStorage.getItem("nextjs-app-theme") as ITheme["theme"];
         const preferDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         //* 1. Check if local storage has a saved theme
@@ -80,7 +80,7 @@ export const ThemeToggler = () => {
                 <FontAwesomeIcon icon={faCircleHalfStroke} flip={currentTheme === "dark" ? "vertical" : "horizontal"} />
             </motion.span>
             <FontAwesomeIcon className='text-sm pointer-events-none' icon={faMoon} />
-            <FontAwesomeIcon className='text-sm pointer-events-none' icon={faSun} />
+            <FontAwesomeIcon className='text-sm pointer-events-none' icon={faSun} color='#f2f28d' />
         </button>
     );
 };
