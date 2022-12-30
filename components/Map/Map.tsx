@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createRef } from "react";
 
 import { IMap } from "../../types/IMap";
+import { mapPreferences } from "../../utils/mapPreferences";
 
 export const Map = ({ className, children, centre, zoom }: IMap) => {
     //* Create ref for map's div element
@@ -24,18 +25,18 @@ export const Map = ({ className, children, centre, zoom }: IMap) => {
         map.setCenter(centre);
         map.setZoom(zoom);
 
-        // TODO add functionality to save map centre and zoom to Local Storage
-        // //* Add an event listener to save the map centre to Local Storage every time the map is panned
-        // map.addListener("center_changed", () => {
-        //     const currentCentre = map.getCenter();
-        //     // if (currentCentre) mapPreferences.set({ lat: currentCentre.lat(), lng: currentCentre.lng() });
-        // });
+        //* Add an event listener to save the map centre to Local Storage every time the map is panned
+        map.addListener("center_changed", () => {
+            const currentCentre = map.getCenter();
+            if (currentCentre) mapPreferences.set({ lat: currentCentre.lat(), lng: currentCentre.lng() });
+        });
 
-        // //* Add an event listener to save the map zoom to Local Storage every time the zoom changes
-        // map.addListener("zoom_changed", () => {
-        //     const currentZoom = map.getZoom();
-        //     // if (currentZoom) mapPreferences.set(undefined, currentZoom);
-        // });
+        //* Add an event listener to save the map zoom to Local Storage every time the zoom changes
+        map.addListener("zoom_changed", () => {
+            const currentZoom = map.getZoom();
+            // * 'undefined' is passed since mapPreferences.set takes arguments for centre and zoom but centre is undefined in this case
+            if (currentZoom) mapPreferences.set(undefined, currentZoom);
+        });
     }
 
     //* Return the map instance
