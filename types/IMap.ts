@@ -1,6 +1,8 @@
 export interface IMap {
     className?: string;
-    children: React.ReactElement;
+    children:
+        | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+        | readonly React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
     centre: google.maps.LatLng | google.maps.LatLngLiteral;
     zoom: number;
 }

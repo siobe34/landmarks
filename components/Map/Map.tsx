@@ -39,7 +39,7 @@ export const Map = ({ className, children, centre, zoom }: IMap) => {
     }
 
     //* Return the map instance
-    //* id of 'map' is important for the google API
+    //* id of 'map' is required for Google Maps JS API
     //* setting the height and width is also important to avoid weird google style issues on the map container
     return (
         <div ref={ref} id='map' className={`${className} w-full h-full`}>
