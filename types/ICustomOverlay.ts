@@ -1,4 +1,4 @@
-export interface ICustomOverlay extends google.maps.OverlayView {
+export interface ICustomOverlay {
     position: google.maps.LatLng | google.maps.LatLngLiteral;
     markerDiv: HTMLDivElement;
 }
