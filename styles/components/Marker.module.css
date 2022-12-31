@@ -1,0 +1,76 @@
+.markerCustom {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid rgb(var(--bg3));
+    color: rgb(var(--txtOnBg));
+    background-color: rgb(var(--bg1));
+    transform: translateX(-50%) translateY(-100%);
+    transition: all 0.3s ease-out, top 0s, left 0s, right 0s, bottom 0s;
+}
+
+.markerCustom::after {
+    content: "";
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    height: 0;
+    width: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid rgb(var(--bg1));
+    transform: translate(-50%, 0);
+    transition: all 0.3s ease-out;
+    z-index: 1;
+}
+
+.markerCustom.active {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    max-width: 95vw;
+    max-height: 40vh;
+    border-radius: 0.5rem;
+    box-shadow: 10px 10px 5px rgba(var(--bg1), 0.2);
+    cursor: auto;
+    overflow: auto;
+}
+.markerCustom.active::after {
+    content: none;
+}
+
+.active .buttonClose {
+    display: inline-flex;
+}
+
+.active .icon {
+    align-self: center;
+    font-size: 2rem;
+}
+
+.active .section {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    .markerCustom.active {
+        max-width: 65vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .markerCustom.active {
+        max-width: 50vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    .markerCustom.active {
+        max-width: 40vw;
+    }
+}
