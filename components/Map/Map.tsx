@@ -25,6 +25,14 @@ export const Map = ({ className, children, centre, zoom }: IMap) => {
         map.setCenter(centre);
         map.setZoom(zoom);
 
+        // * Set default map options
+        map.setOptions({
+            backgroundColor: "inherit",
+            draggableCursor: "auto",
+            draggingCursor: "move",
+            disableDefaultUI: true,
+        });
+
         //* Add an event listener to save the map centre to Local Storage every time the map is panned
         map.addListener("center_changed", () => {
             const currentCentre = map.getCenter();
