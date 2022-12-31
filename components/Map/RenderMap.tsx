@@ -8,8 +8,7 @@ import { mapPreferences } from "../../utils/mapPreferences";
 
 import { Map } from "./Map";
 import { Marker } from "./Marker";
-
-import landmarksJson from "../../json/landmarks.json";
+import { Loading } from "../Loading";
 
 const DEFAULT_MAP_PREFERENCES = {
     centre: {
@@ -48,11 +47,9 @@ export const RenderMap = () => {
         switch (status) {
             default:
             case Status.LOADING:
-                // TODO add Loading component
-                return <div>Loading...</div>;
+                return <Loading />;
             case Status.FAILURE:
-                // TODO add Failure component
-                return <div>Failed to load...</div>;
+                return <div className='mt-[10vh]'>Failed to load Google Maps...Please try to refresh the page.</div>;
             case Status.SUCCESS:
                 return (
                     <Map centre={centre} zoom={zoom}>
