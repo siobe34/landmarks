@@ -18,10 +18,7 @@ const DEFAULT_MAP_PREFERENCES = {
     zoom: 8,
 };
 
-export const RenderMap = () => {
-    // TODO change method of fetching data
-    const markers = landmarksJson as unknown as ILandmark[];
-
+export const RenderMap = ({ markers }: { markers: ILandmark[] }) => {
     //* Initialize the centre and zoom of the map, and set to default values
     const [centre, setCentre] = useState<IMapPreference["centre"]>(DEFAULT_MAP_PREFERENCES.centre);
     const [zoom, setZoom] = useState<IMapPreference["zoom"]>(DEFAULT_MAP_PREFERENCES.zoom);

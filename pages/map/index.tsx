@@ -1,9 +1,18 @@
 import { RenderMap } from "../../components/Map/RenderMap";
 
-export default function Map() {
+import { ILandmark } from "../../types/ILandmark";
+
+import landmarksJson from "../../json/landmarks.json";
+
+export default function MapPage(json: { markers: ILandmark[] }) {
     return (
-        <section className='flex w-full h-full'>
-            <RenderMap />
+        <section className='flex justify-center w-full h-full'>
+            <RenderMap markers={json.markers} />
         </section>
     );
+}
+
+export async function getServerSideProps() {
+    // TODO make api calls to fetch markers
+    return { props: { markers: landmarksJson } };
 }
