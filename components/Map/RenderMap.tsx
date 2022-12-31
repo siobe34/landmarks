@@ -9,6 +9,8 @@ import { mapPreferences } from "../../utils/mapPreferences";
 import { Map } from "./Map";
 import { Marker } from "./Marker";
 
+import landmarksJson from "../../json/landmarks.json";
+
 const DEFAULT_MAP_PREFERENCES = {
     centre: {
         lat: 43.7427794,
@@ -18,6 +20,9 @@ const DEFAULT_MAP_PREFERENCES = {
 };
 
 export const RenderMap = () => {
+    // TODO change method of fetching data
+    const markers = landmarksJson as unknown as ILandmark[];
+
     //* Initialize the centre and zoom of the map, and set to default values
     const [centre, setCentre] = useState<IMapPreference["centre"]>(DEFAULT_MAP_PREFERENCES.centre);
     const [zoom, setZoom] = useState<IMapPreference["zoom"]>(DEFAULT_MAP_PREFERENCES.zoom);
@@ -51,6 +56,9 @@ export const RenderMap = () => {
             case Status.SUCCESS:
                 return (
                     <Map centre={centre} zoom={zoom}>
+                        {markers.map((marker) => (
+                            <Marker key={marker.id} position={marker.position} landmark={marker} />
+                        ))}
                     </Map>
                 );
         }
