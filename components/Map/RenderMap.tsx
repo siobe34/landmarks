@@ -12,8 +12,8 @@ import { Loading } from "../Loading";
 
 const DEFAULT_MAP_PREFERENCES = {
     centre: {
-        lat: 43.7427794,
-        lng: -79.5286326,
+        lat: 21.27769260356708,
+        lng: -89.50108472009696,
     },
     zoom: 8,
 };
