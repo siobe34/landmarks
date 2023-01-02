@@ -57,9 +57,9 @@ export const MarkerContent = ({ landmark }: { landmark: ILandmark }) => {
                     <h2 className='text-sm font-semibold underline'>Sources</h2>
                     <ul className='flex flex-col justify-center items-start'>
                         {landmark.sources.map((source) => (
-                            <li key={source}>
-                                <a className='hover:text-primary underline' href={source}>
-                                    {source}
+                            <li key={source.sourceLink}>
+                                <a className='hover:text-primary underline' href={source.sourceLink}>
+                                    {source.sourceType}
                                 </a>
                             </li>
                         ))}

@@ -6,5 +6,5 @@ export interface ILandmark {
     imageSource: string;
     imageCaption: string;
     description: string;
-    sources: string[];
+    sources: Array<{ sourceType: string; sourceLink: string }>;
 }
