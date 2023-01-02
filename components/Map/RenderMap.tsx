@@ -66,7 +66,7 @@ export const RenderMap = ({ markers }: IRenderMap) => {
                 return (
                     <Map centre={centre} zoom={zoom} styles={mapStyle}>
                         {markers.map((marker) => (
-                            <Marker key={marker.id} position={marker.position} displayMarker={layerState[marker.type]} landmark={marker} />
+                            <Marker key={marker._id} position={marker.position} displayMarker={layerState[marker.type]} landmark={marker} />
                         ))}
                     </Map>
                 );

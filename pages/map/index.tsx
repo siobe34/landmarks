@@ -1,8 +1,7 @@
 import { ILandmark } from "../../types/ILandmark";
+import dbConnection from "../../lib/mongodbConnection";
 
 import { RenderMap } from "../../components/Map/RenderMap";
-
-import landmarksJson from "../../json/landmarks.json";
 
 export default function MapPage(json: { markers: ILandmark[] }) {
     return (
@@ -13,6 +12,18 @@ export default function MapPage(json: { markers: ILandmark[] }) {
 }
 
 export async function getServerSideProps() {
-    // TODO make api calls to fetch markers
-    return { props: { markers: landmarksJson } };
+    try {
+        // * Connect to mongodb server
+        const client = await dbConnection;
+
+        // * Get database instance from server
+        const db = client.db("landmarks");
+
+        // * Query all markers from database
+        const markers = await db.collection("markers").find({}).toArray();
+
+        return { props: { markers: JSON.parse(JSON.stringify(markers)) } };
+    } catch (e) {
+        console.error(e);
+    }
 }
