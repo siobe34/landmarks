@@ -2,36 +2,35 @@ import { useState, useEffect, useCallback } from "react";
 
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
+import { IRenderMap } from "../../types/IRenderMap";
 import { IMapPreference } from "../../types/IMap";
-import { ILandmark } from "../../types/ILandmark";
+import { ILayerState } from "../../types/ILayerState";
 import { mapPreferences } from "../../utils/mapPreferences";
+import { DEFAULT_MAP_PREFERENCES, DEFAULT_LAYER_STATE } from "../../utils/MAP_DEFAULTS";
 
 import { Map } from "./Map";
 import { Marker } from "./Marker";
 import { Loading } from "../Loading";
+import { MapLayers } from "./MapLayers";
 
-const DEFAULT_MAP_PREFERENCES = {
-    centre: {
-        lat: 21.27769260356708,
-        lng: -89.50108472009696,
-    },
-    zoom: 8,
-};
+export const RenderMap = ({ markers }: IRenderMap) => {
+    // * Initialize all layers to be displayed by default
+    const [layerState, setLayerState] = useState<ILayerState>(DEFAULT_LAYER_STATE);
 
-export const RenderMap = ({ markers }: { markers: ILandmark[] }) => {
     //* Initialize the centre and zoom of the map, and set to default values
     const [centre, setCentre] = useState<IMapPreference["centre"]>(DEFAULT_MAP_PREFERENCES.centre);
     const [zoom, setZoom] = useState<IMapPreference["zoom"]>(DEFAULT_MAP_PREFERENCES.zoom);
 
+    // * Function to set the map centre and zoom of the map from Local Storage
     const setMapCentreZoom = useCallback(() => {
-        //* Get map preferences from localStorage
+        //* Get map preferences from Local Storage
         const storedMapPreferences = mapPreferences.get();
 
-        //* Set map centre if found in localStorage
+        //* Set map centre if found in Local Storage
         if (storedMapPreferences?.mapLat && storedMapPreferences?.mapLng)
             setCentre({ lat: storedMapPreferences.mapLat, lng: storedMapPreferences.mapLng });
 
-        //* Set map zoom if found in localStorage
+        //* Set map zoom if found in Local Storage
         if (storedMapPreferences?.mapZoom) setZoom(storedMapPreferences.mapZoom);
     }, [setCentre, setZoom]);
 
@@ -40,6 +39,7 @@ export const RenderMap = ({ markers }: { markers: ILandmark[] }) => {
         setMapCentreZoom();
     }, [setMapCentreZoom]);
 
+    // * Function to initialize and render the map and respective map loading/map error components
     const handleMapStatus = (status: Status) => {
         switch (status) {
             default:
@@ -51,12 +51,17 @@ export const RenderMap = ({ markers }: { markers: ILandmark[] }) => {
                 return (
                     <Map centre={centre} zoom={zoom}>
                         {markers.map((marker) => (
-                            <Marker key={marker.id} position={marker.position} landmark={marker} />
+                            <Marker key={marker.id} position={marker.position} displayMarker={layerState[marker.type]} landmark={marker} />
                         ))}
                     </Map>
                 );
         }
     };
     // TODO secure api key
-    return <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""} render={handleMapStatus} version='beta' libraries={["marker"]} />;
+    return (
+        <>
+            <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""} render={handleMapStatus} version='beta' libraries={["marker"]} />
+            <MapLayers setMapPreferences={setMapCentreZoom} setLayerState={setLayerState} />
+        </>
+    );
 };

@@ -8,8 +8,7 @@ import { hideMarker } from "../../utils/hideMarker";
 import { MarkerContent } from "./MarkerContent";
 import { CustomOverlay } from "./CustomOverlay";
 
-export const Marker = ({ map, position, landmark }: IMarker) => {
-    if (!map || !position) return null;
+export const Marker = ({ map, position, displayMarker, landmark }: IMarker) => {
 
     // * Content to be displayed for each respective marker
     const markerContent = document.createElement("div");
