@@ -28,13 +28,21 @@ export default function About() {
                     </p>
                 </article>
                 <article className='flex flex-col gap-4'>
-                    <p>
+                    <h2 className='flex self-center text-2xl font-bold underline'>Other</h2>
+                    <li>
                         <a href='https://snazzymaps.com/' className={linkUtils}>
                             Snazzy Maps
                         </a>{" "}
                         was used to get the different map themes. Snazzy Maps provides a large variety of map styles to use with your own Google Maps
                         application.
-                    </p>
+                    </li>
+                    <li>
+                        This is a personal project created as a hobby, you can check out{" "}
+                        <a href='https://ibadrashid.vercel.app' className={linkUtils}>
+                            my portfolio
+                        </a>{" "}
+                        for other projects I've worked on.
+                    </li>
                 </article>
             </PageSection>
         </>
