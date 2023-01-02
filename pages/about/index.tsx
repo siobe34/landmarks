@@ -1,22 +1,30 @@
+import Head from "next/head";
+
 import { PageSection } from "../../components/PageSection";
 
 export default function About() {
     return (
-        <PageSection className='justify-start mt-4 px-8'>
-            <article className='flex flex-col gap-4'>
-                <h1 className='flex self-center text-2xl font-bold underline'>What is Landmarks?</h1>
-                <p>
-                    A world map of cool landmarks and respective information. It's an interactive way to learn about interesting geography, weird
-                    archeological facts, various points of interest, and any other intriguing geospatial data.
-                </p>
-                <p>
-                    Just head over to the{" "}
-                    <a href='/' className='px-2 py-1 rounded bg-secondary text-txtOnSecondary hover:underline'>
-                        Map
-                    </a>{" "}
-                    and explore the various markers.
-                </p>
-            </article>
-        </PageSection>
+        <>
+            <Head>
+                <title>Landmarks | Home</title>
+            </Head>
+
+            <PageSection className='justify-start mt-4 px-8'>
+                <article className='flex flex-col gap-4'>
+                    <h1 className='flex self-center text-2xl font-bold underline'>What is Landmarks?</h1>
+                    <p>
+                        A world map of various landmarks with a brief description about each landmark. It's an interactive way to learn about
+                        interesting geography, weird archeological facts, various points of interest, and any other intriguing geospatial data.
+                    </p>
+                    <p>
+                        Just head over to the{" "}
+                        <a href='/' className='px-2 py-1 rounded bg-secondary text-txtOnSecondary hover:underline'>
+                            Map
+                        </a>{" "}
+                        and explore the various markers.
+                    </p>
+                </article>
+            </PageSection>
+        </>
     );
 }

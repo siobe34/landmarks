@@ -9,7 +9,9 @@ export default function Home(json: { markers: ILandmark[] }) {
     return (
         <>
             <Head>
-                <title>Landmarks</title>
+                <title>Landmarks | Home</title>
+                <meta name='theme-color' content='dark' />
+                <meta name='description' content='Explore interesting geological and archaeological landmarks.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
