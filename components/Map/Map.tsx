@@ -4,7 +4,7 @@ import { IMap } from "../../types/IMap";
 import { mapPreferences } from "../../utils/mapPreferences";
 import { DEFAULT_MAP_OPTIONS } from "../../utils/MAP_DEFAULTS";
 
-export const Map = ({ className, children, centre, zoom }: IMap) => {
+export const Map = ({ className, children, centre, zoom, styles }: IMap) => {
     //* Create ref for map's div element
     const ref = createRef<HTMLDivElement>();
 
@@ -22,7 +22,7 @@ export const Map = ({ className, children, centre, zoom }: IMap) => {
         map.setZoom(zoom);
 
         // * Set default map options
-        map.setOptions(DEFAULT_MAP_OPTIONS);
+        map.setOptions({ ...DEFAULT_MAP_OPTIONS, styles: styles });
 
         //* Add an event listener to save the map centre to Local Storage every time the map is panned
         map.addListener("center_changed", () => {

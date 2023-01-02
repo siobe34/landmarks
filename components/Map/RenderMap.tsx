@@ -1,23 +1,29 @@
 import { useState, useEffect, useCallback } from "react";
 
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { LayoutGroup } from "framer-motion";
 
 import { IRenderMap } from "../../types/IRenderMap";
-import { IMapPreference } from "../../types/IMap";
 import { ILayerState } from "../../types/ILayerState";
+import { IMapPreference } from "../../types/IMap";
 import { mapPreferences } from "../../utils/mapPreferences";
 import { DEFAULT_MAP_PREFERENCES, DEFAULT_LAYER_STATE } from "../../utils/MAP_DEFAULTS";
+import { mapStyleArrays } from "../../utils/mapStyleArrays";
 
 import { Map } from "./Map";
 import { Marker } from "./Marker";
 import { Loading } from "../Loading";
 import { MapLayers } from "./MapLayers";
+import { MapStyles } from "./MapStyles";
 
 export const RenderMap = ({ markers }: IRenderMap) => {
+    // * Initialize state for style of map & set to default
+    const [mapStyle, setMapStyle] = useState<google.maps.MapOptions["styles"]>(mapStyleArrays.default);
+
     // * Initialize all layers to be displayed by default
     const [layerState, setLayerState] = useState<ILayerState>(DEFAULT_LAYER_STATE);
 
-    //* Initialize the centre and zoom of the map, and set to default values
+    // * Initialize the centre and zoom of the map, and set to default values
     const [centre, setCentre] = useState<IMapPreference["centre"]>(DEFAULT_MAP_PREFERENCES.centre);
     const [zoom, setZoom] = useState<IMapPreference["zoom"]>(DEFAULT_MAP_PREFERENCES.zoom);
 
@@ -49,7 +55,7 @@ export const RenderMap = ({ markers }: IRenderMap) => {
                 return <div className='mt-[10vh]'>Failed to load Google Maps...Please try to refresh the page.</div>;
             case Status.SUCCESS:
                 return (
-                    <Map centre={centre} zoom={zoom}>
+                    <Map centre={centre} zoom={zoom} styles={mapStyle}>
                         {markers.map((marker) => (
                             <Marker key={marker.id} position={marker.position} displayMarker={layerState[marker.type]} landmark={marker} />
                         ))}
@@ -61,6 +67,12 @@ export const RenderMap = ({ markers }: IRenderMap) => {
     return (
         <>
             <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""} render={handleMapStatus} />
+            <LayoutGroup>
+                <div className='absolute top-2 flex justify-center items-start gap-2 w-full'>
+                    <MapStyles setMapPreferences={setMapCentreZoom} setMapStyle={setMapStyle} />
+                    <MapLayers setMapPreferences={setMapCentreZoom} setLayerState={setLayerState} />
+                </div>
+            </LayoutGroup>
         </>
     );
 };
