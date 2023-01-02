@@ -11,10 +11,10 @@ export default function About() {
                 </p>
                 <p>
                     Just head over to the{" "}
-                    <a href='/map' className='px-2 py-1 rounded bg-secondary text-txtOnSecondary hover:underline'>
-                        Map page
+                    <a href='/' className='px-2 py-1 rounded bg-secondary text-txtOnSecondary hover:underline'>
+                        Map
                     </a>{" "}
-                    and explore the markers on the map.
+                    and explore the various markers.
                 </p>
             </article>
         </PageSection>

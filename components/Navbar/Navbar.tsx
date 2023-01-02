@@ -13,7 +13,6 @@ import { ThemeToggler } from "../ThemeToggler";
 // * Array to store hrefs and names of website pages for cleaner HTML below
 const SitePages = [
     { href: "/", name: "Home" },
-    { href: "/map", name: "Map" },
     { href: "/about", name: "About" },
 ];
 
