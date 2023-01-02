@@ -29,7 +29,7 @@ export const MarkerContent = ({ landmark }: { landmark: ILandmark }) => {
         <>
             <button
                 id='btn-close'
-                className={`${styles.buttonClose} sticky top-0 hidden self-end py-0.5 px-1 border rounded border-secondary hover:border-primary text-txtOnPrimary hover:text-txtOnSecondary bg-primary hover:bg-secondary`}
+                className={`${styles.buttonClose} sticky top-0 hidden self-start py-0.5 px-1 border rounded border-secondary hover:border-primary text-txtOnPrimary hover:text-txtOnSecondary bg-primary hover:bg-secondary`}
                 type='button'
                 aria-label='Close Pop-up Window'
             >
