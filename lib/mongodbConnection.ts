@@ -4,11 +4,11 @@ declare global {
     var _mongoClientPromise: Promise<MongoClient>;
 }
 
-if (!process.env.NEXT_PUBLIC_DB_URI) {
-    throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
+if (!process.env.DB_URI) {
+    throw new Error('Invalid/Missing environment variable: "DB_URI"');
 }
 
-const uri = process.env.NEXT_PUBLIC_DB_URI;
+const uri = process.env.DB_URI;
 const options = {};
 
 let client;
