@@ -17,16 +17,14 @@
 .markerCustom::after {
     content: "";
     position: absolute;
-    top: 95%;
-    left: 50%;
-    height: 0;
-    width: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-top: 9px solid rgb(var(--bg1));
-    transform: translate(-50%, 0);
+    top: 87%;
+    height: 10px;
+    width: 10px;
+    border-bottom: 1px solid rgb(var(--bg3));
+    border-right: 1px solid rgb(var(--bg3));
+    background-color: rgb(var(--bg1));
+    rotate: 45deg;
     transition: all 0.3s ease-out;
-    z-index: 1;
 }
 
 .markerCustom.active {
