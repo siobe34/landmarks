@@ -2,6 +2,7 @@ import React, { useState, useEffect, createRef } from "react";
 
 import { IMap } from "../../types/IMap";
 import { mapPreferences } from "../../utils/mapPreferences";
+import { DEFAULT_MAP_OPTIONS } from "../../utils/MAP_DEFAULTS";
 
 export const Map = ({ className, children, centre, zoom }: IMap) => {
     //* Create ref for map's div element
@@ -26,12 +27,7 @@ export const Map = ({ className, children, centre, zoom }: IMap) => {
         map.setZoom(zoom);
 
         // * Set default map options
-        map.setOptions({
-            backgroundColor: "inherit",
-            draggableCursor: "auto",
-            draggingCursor: "move",
-            disableDefaultUI: true,
-        });
+        map.setOptions(DEFAULT_MAP_OPTIONS);
 
         //* Add an event listener to save the map centre to Local Storage every time the map is panned
         map.addListener("center_changed", () => {

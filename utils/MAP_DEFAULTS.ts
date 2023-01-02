@@ -6,6 +6,13 @@ export const DEFAULT_MAP_PREFERENCES: IMapPreference = {
     zoom: 2.5,
 };
 
+export const DEFAULT_MAP_OPTIONS: google.maps.MapOptions = {
+    backgroundColor: "inherit",
+    draggableCursor: "auto",
+    draggingCursor: "move",
+    disableDefaultUI: true,
+    clickableIcons: false,
+};
 
 export const DEFAULT_LAYER_STATE: ILayerState = {
     Archaeology: true,
