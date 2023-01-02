@@ -33,6 +33,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1rem;
+    width: clamp(300px, 75vw, 600px);
     max-width: 95vw;
     max-height: 40vh;
     border-radius: 0.5rem;
@@ -55,22 +56,4 @@
 
 .active .section {
     display: flex;
-}
-
-@media (min-width: 768px) {
-    .markerCustom.active {
-        max-width: 65vw;
-    }
-}
-
-@media (min-width: 1024px) {
-    .markerCustom.active {
-        max-width: 50vw;
-    }
-}
-
-@media (min-width: 1200px) {
-    .markerCustom.active {
-        max-width: 40vw;
-    }
 }
