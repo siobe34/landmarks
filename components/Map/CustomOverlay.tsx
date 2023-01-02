@@ -1,8 +1,8 @@
 import styles from "../../styles/components/Marker.module.css";
 
 import { ICustomOverlay } from "../../types/ICustomOverlay";
-import { showMarker } from "../../utils/showMarker";
-import { hideMarker } from "../../utils/hideMarker";
+import { showMarker } from "../../lib/showMarker";
+import { hideMarker } from "../../lib/hideMarker";
 
 export const CustomOverlay = ({ position, windowContent }: ICustomOverlay) => {
     // * Instantiate OverlayView class instance

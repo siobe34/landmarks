@@ -8,10 +8,10 @@ import { ILayerState } from "../../types/ILayerState";
 import { IMapPreference } from "../../types/IMap";
 import { ITheme } from "../../types/ITheme";
 
-import { mapPreferences } from "../../utils/mapPreferences";
-import { DEFAULT_MAP_PREFERENCES, DEFAULT_LAYER_STATE } from "../../utils/MAP_DEFAULTS";
-import { mapStyleArrays } from "../../utils/mapStyleArrays";
-import { withLocalStorage } from "../../utils/withStorage";
+import { mapPreferences } from "../../lib/mapPreferences";
+import { DEFAULT_MAP_PREFERENCES, DEFAULT_LAYER_STATE } from "../../lib/MAP_DEFAULTS";
+import { mapStyleArrays } from "../../lib/mapStyleArrays";
+import { withLocalStorage } from "../../lib/withStorage";
 
 import { Map } from "./Map";
 import { Marker } from "./Marker";

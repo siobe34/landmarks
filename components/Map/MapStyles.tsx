@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMap } from "@fortawesome/free-solid-svg-icons";
 
 import { IMapStyles } from "../../types/IMapStyles";
-import { mapStyleArrays, IStyles } from "../../utils/mapStyleArrays";
+import { mapStyleArrays, IStyles } from "../../lib/mapStyleArrays";
 
 import { Button, buttonUtils } from "../../components/Button";
 

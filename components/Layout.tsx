@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { ILayout } from "../types/ILayout";
 import styles from "../styles/components/Layout.module.css";
+import { ILayout } from "../types/ILayout";
 
 import { Navbar } from "./Navbar/Navbar";
 import { ScrollToTop } from "./ScrollToTop";

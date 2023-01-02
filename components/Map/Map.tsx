@@ -1,8 +1,8 @@
 import React, { useState, useEffect, createRef } from "react";
 
 import { IMap } from "../../types/IMap";
-import { mapPreferences } from "../../utils/mapPreferences";
-import { DEFAULT_MAP_OPTIONS } from "../../utils/MAP_DEFAULTS";
+import { mapPreferences } from "../../lib/mapPreferences";
+import { DEFAULT_MAP_OPTIONS } from "../../lib/MAP_DEFAULTS";
 
 export const Map = ({ className, children, centre, zoom, styles }: IMap) => {
     //* Create ref for map's div element
