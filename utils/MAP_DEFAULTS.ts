@@ -12,6 +12,7 @@ export const DEFAULT_MAP_OPTIONS: google.maps.MapOptions = {
     draggingCursor: "move",
     disableDefaultUI: true,
     clickableIcons: false,
+    minZoom: 2,
 };
 
 export const DEFAULT_LAYER_STATE: ILayerState = {
