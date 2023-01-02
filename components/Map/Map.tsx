@@ -13,12 +13,7 @@ export const Map = ({ className, children, centre, zoom }: IMap) => {
 
     //* Set a new Map using the current ref, centre, and zoom
     useEffect(() => {
-        setMap(
-            new window.google.maps.Map(ref.current!, {
-                // TODO secure map id
-                mapId: process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID,
-            }),
-        );
+        setMap(new window.google.maps.Map(ref.current!));
     }, []);
 
     if (map) {
