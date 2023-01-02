@@ -77,7 +77,7 @@ export const ThemeToggler = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 layout
             >
-                <FontAwesomeIcon icon={faCircleHalfStroke} flip={currentTheme === "dark" ? "vertical" : "horizontal"} />
+                <FontAwesomeIcon icon={faCircleHalfStroke} />
             </motion.span>
             <FontAwesomeIcon className='text-sm pointer-events-none' icon={faMoon} />
             <FontAwesomeIcon className='text-sm pointer-events-none' icon={faSun} color='#f2f28d' />
