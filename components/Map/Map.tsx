@@ -1,5 +1,7 @@
 import React, { useState, useEffect, createRef } from "react";
 
+import mapStyleOverride from "../../styles/components/Map.module.css";
+
 import { IMap } from "../../types/IMap";
 import { mapPreferences } from "../../lib/mapPreferences";
 import { DEFAULT_MAP_OPTIONS } from "../../lib/MAP_DEFAULTS";
@@ -42,7 +44,7 @@ export const Map = ({ className, children, centre, zoom, styles }: IMap) => {
     //* id of 'map' is required for Google Maps JS API
     //* setting the height and width is also important to avoid weird google style issues on the map container
     return (
-        <div ref={ref} id='map' className={`${className} w-full h-full`}>
+        <div ref={ref} id='map' className={`${mapStyleOverride.map} ${className} w-full h-full`}>
             {React.Children.map(children, (child: React.ReactElement) => {
                 return React.cloneElement(child, { map });
             })}

@@ -1,0 +1,8 @@
+/** This is done to override google's default background-color which is always set to rgb(229, 227, 223) */
+/** Their 'backgroundColor' in the mapOptions doesn't override this when the docs indicate that it should */
+/** It's also set as a fucking inline-style without any way to change it?? so !important is needed to override it */
+/** wth Google, get ur shit together */
+/** I mean maybe I'm just stupid and there's a correct way around this but it is what it is */
+.map > * {
+    background-color: rgb(var(--bg1)) !important;
+}
