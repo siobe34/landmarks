@@ -17,7 +17,7 @@ export const ThemeToggler = () => {
             setCurrentTheme("dark");
 
             // * Set dark theme in Local Storage
-            window.localStorage.setItem("nextjs-app-theme", "dark");
+            window.localStorage.setItem("landmarks-theme", "dark");
         }
 
         if (currentTheme === "dark") {
@@ -26,13 +26,13 @@ export const ThemeToggler = () => {
             document.documentElement.classList.remove("dark");
 
             // * Set light theme in Local Storage
-            window.localStorage.setItem("nextjs-app-theme", "light");
+            window.localStorage.setItem("landmarks-theme", "light");
         }
     };
 
     useEffect(() => {
         // * Get stored theme from Local Storage
-        const storedTheme = window.localStorage.getItem("nextjs-app-theme") as ITheme["theme"];
+        const storedTheme = window.localStorage.getItem("landmarks-theme") as unknown as ITheme["theme"];
         const preferDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         //* 1. Check if local storage has a saved theme
