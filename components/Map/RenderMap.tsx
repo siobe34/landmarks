@@ -6,9 +6,12 @@ import { LayoutGroup } from "framer-motion";
 import { IRenderMap } from "../../types/IRenderMap";
 import { ILayerState } from "../../types/ILayerState";
 import { IMapPreference } from "../../types/IMap";
+import { ITheme } from "../../types/ITheme";
+
 import { mapPreferences } from "../../utils/mapPreferences";
 import { DEFAULT_MAP_PREFERENCES, DEFAULT_LAYER_STATE } from "../../utils/MAP_DEFAULTS";
 import { mapStyleArrays } from "../../utils/mapStyleArrays";
+import { withLocalStorage } from "../../utils/withStorage";
 
 import { Map } from "./Map";
 import { Marker } from "./Marker";
@@ -44,6 +47,12 @@ export const RenderMap = ({ markers }: IRenderMap) => {
     useEffect(() => {
         setMapCentreZoom();
     }, [setMapCentreZoom]);
+
+    //* On page load, if theme is set to dark then set default map style to dark
+    useEffect(() => {
+        const theme = withLocalStorage.getItem("landmarks-theme") as unknown as ITheme["theme"];
+        if (theme === "dark") setMapStyle(mapStyleArrays.dark);
+    }, []);
 
     // * Function to initialize and render the map and respective map loading/map error components
     const handleMapStatus = (status: Status) => {
