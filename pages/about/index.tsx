@@ -21,7 +21,7 @@ export default function About() {
                     </p>
                     <p>
                         Just head over to the{" "}
-                        <Link href='/' className={linkUtils}>
+                        <Link href='/' className={linkUtils} aria-label='Explore the map'>
                             Map
                         </Link>{" "}
                         and explore the various markers.
@@ -31,7 +31,7 @@ export default function About() {
                     <span className='flex self-start text-2xl font-bold'>Other</span>
                     <ul className='list-disc pl-6'>
                         <li>
-                            <a href='https://snazzymaps.com/' className={linkUtils}>
+                            <a href='https://snazzymaps.com/' className={linkUtils} aria-label='Browse map styles at Snazzy Maps'>
                                 Snazzy Maps
                             </a>{" "}
                             was used to get the different map themes. They provide a large library of map styles to use with your own Google Maps
@@ -39,7 +39,7 @@ export default function About() {
                         </li>
                         <li>
                             This is a hobby project created because I love maps, you can check out{" "}
-                            <a href='https://ibadrashid.vercel.app' className={linkUtils}>
+                            <a href='https://ibadrashid.vercel.app' className={linkUtils} aria-label='Check out my other projects'>
                                 my portfolio
                             </a>{" "}
                             for other projects I've worked on.

@@ -24,7 +24,7 @@ export const Navbar = ({ className }: INavbar) => {
     return (
         <nav className={className}>
             {/* Logo */}
-            <Link className='min-h-[1rem] h-[10vw] max-h-[65%] ml-8' href='/' onClick={() => setMenuActive(false)}>
+            <Link className='min-h-[1rem] h-[10vw] max-h-[65%] ml-8' href='/' onClick={() => setMenuActive(false)} aria-label='Link to Site Home'>
                 <Logo height='100%' />
             </Link>
 

@@ -22,7 +22,7 @@ export const Navlink = ({ href, onClick, children }: INavlink) => {
             onMouseEnter={() => toggleLinkHover(true)}
             onMouseLeave={() => toggleLinkHover(false)}
         >
-            <Link href={href} onClick={onClick}>
+            <Link href={href} onClick={onClick} aria-label={`Link to site page: ${children}`}>
                 {children}
                 <span className={`flex h-0.5 ${hover ? "w-full" : "w-0"} bg-primary transition-[width] ease-in-out`} aria-hidden='true' />
             </Link>

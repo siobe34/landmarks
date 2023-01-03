@@ -58,7 +58,7 @@ export const MarkerContent = ({ landmark }: { landmark: ILandmark }) => {
                     <ul className='flex flex-col justify-center items-start'>
                         {landmark.sources.map((source) => (
                             <li key={source.sourceLink}>
-                                <a className='hover:text-primary underline' href={source.sourceLink}>
+                                <a className='hover:text-primary underline' href={source.sourceLink} aria-label={`Link to ${source.sourceType}`}>
                                     {source.sourceType}
                                 </a>
                             </li>
