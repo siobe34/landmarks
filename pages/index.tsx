@@ -115,5 +115,6 @@ export async function getServerSideProps() {
         return { props: { markers: JSON.parse(JSON.stringify(markers)) } };
     } catch (e) {
         console.error(e);
+        return { props: { markers: null } };
     }
 }
