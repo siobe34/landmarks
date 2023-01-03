@@ -72,7 +72,6 @@ export const RenderMap = ({ markers }: IRenderMap) => {
                 );
         }
     };
-    // TODO secure api key
     return (
         <>
             <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""} render={handleMapStatus} />
