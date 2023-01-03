@@ -40,7 +40,9 @@ export const Navbar = ({ className }: INavbar) => {
                         {link.name}
                     </Navlink>
                 ))}
-                <ThemeToggler />
+                <li>
+                    <ThemeToggler />
+                </li>
             </motion.ul>
 
             {/* Mobile Menu Button */}
