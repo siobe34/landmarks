@@ -7,6 +7,7 @@ import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 
 import { INavbar } from "../../types/INavbar";
 
+import { Logo } from "../Logo";
 import { Navlink } from "./Navlink";
 import { ThemeToggler } from "../ThemeToggler";
 
@@ -23,8 +24,8 @@ export const Navbar = ({ className }: INavbar) => {
     return (
         <nav className={className}>
             {/* Logo */}
-            <Link className='ml-8' href='/' onClick={() => setMenuActive(false)}>
-                Logo
+            <Link className='min-h-[1rem] h-[10vw] max-h-[65%] ml-8' href='/' onClick={() => setMenuActive(false)}>
+                <Logo height='100%' />
             </Link>
 
             {/* Site Navigation Links */}
