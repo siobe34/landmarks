@@ -7,6 +7,7 @@ import { withLocalStorage } from "../lib/withStorage";
 
 import { RenderMap } from "../components/Map/RenderMap";
 import { NotificationGroup, NotificationItem } from "../components/Notification";
+import { Error } from "../components/Error";
 
 const notifications = [
     { text: "Try clicking the icons on the map", timeout: 5000 },
@@ -70,23 +71,32 @@ export default function Home(json: { markers: ILandmark[] }) {
                 <link rel='manifest' href='/site.webmanifest' />
             </Head>
 
-            {/* Toast Notifications */}
-            {showNotifications && (
-                <NotificationGroup>
-                    {notifications.map((notification) =>
-                        notification.text === currentNotification.text ? (
-                            <NotificationItem key={notification.text} timeout={notification.timeout}>
-                                {notification.text}
-                            </NotificationItem>
-                        ) : null,
+            {/* If error during SSR data fetching */}
+            {!json || !json.markers ? (
+                <Error>
+                    <p>Unexpected error occurred while attempting to fetch marker data from the Landmarks database.</p>
+                </Error>
+            ) : (
+                <>
+                    {/* Toast Notifications */}
+                    {showNotifications && (
+                        <NotificationGroup>
+                            {notifications.map((notification) =>
+                                notification.text === currentNotification.text ? (
+                                    <NotificationItem key={notification.text} timeout={notification.timeout}>
+                                        {notification.text}
+                                    </NotificationItem>
+                                ) : null,
+                            )}
+                        </NotificationGroup>
                     )}
-                </NotificationGroup>
-            )}
 
-            {/* Google Maps Container */}
-            <section className='relative flex justify-center w-full h-full'>
-                <RenderMap markers={json.markers} />
-            </section>
+                    {/* Google Maps Container */}
+                    <section className='relative flex justify-center w-full h-full'>
+                        <RenderMap markers={json.markers} />
+                    </section>
+                </>
+            )}
         </>
     );
 }
