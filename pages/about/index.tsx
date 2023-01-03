@@ -14,10 +14,10 @@ export default function About() {
 
             <PageSection className='justify-start gap-12 mt-4 px-8'>
                 <article className='flex flex-col gap-4'>
-                    <h1 className='flex self-center text-2xl font-bold underline'>What is Landmarks?</h1>
                     <p>
-                        A world map of various landmarks with a brief description about each landmark. It's an interactive way to learn about
-                        interesting geography, weird archeological facts, various points of interest, and any other intriguing geospatial data.
+                        <span className='text-2xl font-bold'>Landmarks</span> is a world map of various points of interest with a brief description
+                        about each landmark. It's an interactive way to learn about interesting geography, weird archeological facts, random history,
+                        and any other intriguing geospatial data.
                     </p>
                     <p>
                         Just head over to the{" "}
@@ -28,21 +28,23 @@ export default function About() {
                     </p>
                 </article>
                 <article className='flex flex-col gap-4'>
-                    <h2 className='flex self-center text-2xl font-bold underline'>Other</h2>
-                    <li>
-                        <a href='https://snazzymaps.com/' className={linkUtils}>
-                            Snazzy Maps
-                        </a>{" "}
-                        was used to get the different map themes. Snazzy Maps provides a large variety of map styles to use with your own Google Maps
-                        application.
-                    </li>
-                    <li>
-                        This is a personal project created as a hobby, you can check out{" "}
-                        <a href='https://ibadrashid.vercel.app' className={linkUtils}>
-                            my portfolio
-                        </a>{" "}
-                        for other projects I've worked on.
-                    </li>
+                    <span className='flex self-start text-2xl font-bold'>Other</span>
+                    <ul className='list-disc pl-6'>
+                        <li>
+                            <a href='https://snazzymaps.com/' className={linkUtils}>
+                                Snazzy Maps
+                            </a>{" "}
+                            was used to get the different map themes. They provide a large library of map styles to use with your own Google Maps
+                            application.
+                        </li>
+                        <li>
+                            This is a hobby project created because I love maps, you can check out{" "}
+                            <a href='https://ibadrashid.vercel.app' className={linkUtils}>
+                                my portfolio
+                            </a>{" "}
+                            for other projects I've worked on.
+                        </li>
+                    </ul>
                 </article>
             </PageSection>
         </>
