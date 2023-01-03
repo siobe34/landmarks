@@ -22,7 +22,7 @@ export const CustomOverlay = ({ position, windowContent }: ICustomOverlay) => {
         const map = customOverlay.getMap() as google.maps.Map;
 
         // * Bind event listeners for CustomMarker
-        ["click", "touchenter"].forEach((domEvent) => {
+        ["focus", "click", "touchenter"].forEach((domEvent) => {
             // * Event listener to show the CustomMarker's pop-up window when the icon is clicked
             windowContent.querySelector("#marker-icon")?.addEventListener(domEvent, () => {
                 // * Show the currently clicked CustomMarker's pop-up window
