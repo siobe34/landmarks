@@ -3,10 +3,10 @@ import Head from "next/head";
 
 import { ILandmark } from "../types/ILandmark";
 import dbConnection from "../lib/mongodbConnection";
+import { withLocalStorage } from "../lib/withStorage";
 
 import { RenderMap } from "../components/Map/RenderMap";
 import { NotificationGroup, NotificationItem } from "../components/Notification";
-import { withLocalStorage } from "../lib/withStorage";
 
 const notifications = [
     { text: "Try clicking the icons on the map", timeout: 5000 },
@@ -29,8 +29,7 @@ export default function Home(json: { markers: ILandmark[] }) {
         const firstTimeVisitor = withLocalStorage.getItem("landmarks-visited-status") as string | null;
 
         // * If value from storage is null, then user is a firstTimeVisitor
-        if (firstTimeVisitor === null) withLocalStorage.setItem("landmarks-visited-status", "true");
-        else setShowNotifications(false);
+        if (firstTimeVisitor !== null) setShowNotifications(false);
     }, []);
 
     // * Run every time currentNotification changes to show the next notification
@@ -41,8 +40,11 @@ export default function Home(json: { markers: ILandmark[] }) {
         // * Get index of current notification from notifications array
         const idxCurrentNotification = notifications.indexOf(currentNotification);
 
-        // * If the current notification is the last notification then no more notifications to display
-        if (idxCurrentNotification === notifications.length - 1) return;
+        // * If the current notification is the last notification then no more notifications to display and set the site-visited status in Local Storage
+        if (idxCurrentNotification === notifications.length - 1) {
+            withLocalStorage.setItem("landmarks-visited-status", "true");
+            return;
+        }
 
         // * Set current notification to next notification in array with delay to let previous notification animate out
         const timeoutFunc = setTimeout(() => setCurrentNotification(notifications[idxCurrentNotification + 1]), currentNotification.timeout + 3000);
