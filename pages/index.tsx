@@ -57,7 +57,7 @@ export default function Home(json: { markers: ILandmark[] }) {
         <>
             <Head>
                 <title>Landmarks | Home</title>
-                <meta name='theme-color' content='dark' />
+                <meta name='theme-color' content='#111111' />
                 <meta
                     name='description'
                     content='Landmarks is an interactive way to learn about interesting geography, weird archeological facts, random history, and any other intriguing geospatial data.'
