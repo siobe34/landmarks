@@ -73,8 +73,9 @@ export const ThemeToggler = () => {
             onClick={() => toggleTheme()}
         >
             <motion.span
-                className={`absolute ${currentTheme === "light" ? "right-3" : "left-3"} flex justify-center items-center h-4 w-4 bg-inherit z-[2]`}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className={`absolute ${
+                    currentTheme === "light" ? "right-[15%]" : "right-[65%]"
+                } flex justify-center items-center h-4 w-4 rounded-full bg-inherit z-[2]`}
                 layout
             >
                 <FontAwesomeIcon icon={faCircleHalfStroke} />

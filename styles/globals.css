@@ -29,4 +29,12 @@
         background-color: rgb(var(--bg1));
         scroll-behavior: smooth;
     }
+
+    .app {
+        display: grid;
+        grid-template-areas:
+            "nav"
+            "main";
+        grid-template-rows: max(45px, 7vh) max(93vh, 100%);
+    }
 }
