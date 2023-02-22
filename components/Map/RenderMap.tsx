@@ -51,7 +51,7 @@ export const RenderMap = ({ markers }: IRenderMap) => {
     //* On page load, if theme is set to dark then set default map style to dark
     useEffect(() => {
         const theme = withLocalStorage.getItem("landmarks-theme") as unknown as ITheme["theme"];
-        if (theme === "dark") setMapStyle(mapStyleArrays.dark);
+        if (theme === "dark") setMapStyle(mapStyleArrays.dark_muted);
     }, []);
 
     // * Function to initialize and render the map and respective map loading/map error components
