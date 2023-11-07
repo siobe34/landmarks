@@ -18,6 +18,7 @@ export const Marker = ({ map, position, displayMarker, landmark }: IMarker) => {
     // * Even with custom extension of OverlayView class, can only use static HTML elements
     markerContainer.innerHTML = renderToStaticMarkup(<MarkerContent landmark={landmark} />);
 
+    // ! Update: below can probably be accomplished using Portals but haven't tested it
     // HACK: violates React principles
     // * Using React's createRoot and render methods allows for having interactive JSX components in OverlayView
     // * Can't use it because there should not be multiple instances of createRoot and root.render()
